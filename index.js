@@ -5,8 +5,8 @@ import chalk from "chalk";
 
 const boxenOptions = {
   margin: 1,
-  padding: 1,
-  width: 53,
+  padding: 2,
+  width: 59,
   title: "@baumannzone",
   titleAlignment: "center",
   borderStyle: "bold",
