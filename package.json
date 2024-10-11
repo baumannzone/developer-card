@@ -22,11 +22,12 @@
     "chalk": "^5.3.0"
   },
   "keywords": [
-    "card",
     "npm",
+    "card",
     "npm card",
-    "npx",
     "npx card",
-    "business card"
+    "business card",
+    "developer card",
+    "baumannzone card"
   ]
 }
