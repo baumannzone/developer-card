@@ -6,7 +6,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:baumannzone/baumannzone-card.git"
+    "url": "https://github.com/baumannzone/developer-card"
   },
   "scripts": {
     "dev": "node --watch index.js",
