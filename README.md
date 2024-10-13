@@ -1,9 +1,10 @@
 # Baumannzone Business Card
 
-Esta es mi "Developer Business Card" interactiva. Puedes verla fácilmente ejecutando el siguiente comando en tu terminal:
+Esta es mi "Developer Business Card" interactiva. 
 
 ![baumannzone business card"](./main.png)
 
+Puedes verla fácilmente ejecutando el siguiente comando en tu terminal:
 ```bash
 npx baumannzone-business-card
 ```
