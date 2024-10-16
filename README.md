@@ -1,6 +1,6 @@
-# Baumannzone Business Card
+# Developer Business Card
 
-Esta es mi "Developer Business Card" interactiva. 
+Esta es mi "Developer Business Card". 
 
 ![baumannzone business card"](./main.png)
 
