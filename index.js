@@ -3,6 +3,9 @@
 import boxen from "boxen";
 import chalk from "chalk";
 
+const ORIGINAL_AUTHOR_HANDLE = 'baumannzone';
+const ORIGINAL_AUTHOR_NAME = 'Jorge Baumann';
+
 // Parse command line args
 const [defaultHandle, ...overrides] = process.argv.slice(2);
 const handleOverrides = overrides.reduce((acc, override) => {
@@ -20,10 +23,26 @@ const getHandle = (service) => {
   
   // If service is threads and no override exists, use instagram's handle
   if (serviceKey === 'threads' && !handleOverrides[serviceKey]) {
-    return handleOverrides['instagram'] || defaultHandle || 'baumannzone';
+    return handleOverrides['instagram'] || defaultHandle || ORIGINAL_AUTHOR_HANDLE;
   }
   
-  return handleOverrides[serviceKey] || defaultHandle || 'baumannzone';
+  return handleOverrides[serviceKey] || defaultHandle || ORIGINAL_AUTHOR_HANDLE;
+};
+
+const getWebUrl = () => {
+  const webOverride = getHandle('web');
+  
+  // Domain override case (starts with dot)
+  if (webOverride.startsWith('.')) {
+    return `${getHandle()}${webOverride}`;
+  }
+  
+  // If it doesn't contain a dot, append .dev
+  if (webOverride.includes('.')) {
+    return `${webOverride}`;
+  }
+  
+  return `${webOverride}.dev`;
 };
 
 // Define links first so we can use them to calculate width
@@ -32,7 +51,9 @@ const links = [
     name: chalk.hex("#fff").bgHex("#0f111a")("Web"),
     baseUrl: "https://",
     service: "web",
-    get url() { return chalk.dim(this.baseUrl.padStart(this.baseUrl.length + 6)) + `${getHandle(this.service)}.dev` }
+    get url() { 
+      return chalk.dim(this.baseUrl.padStart(this.baseUrl.length + 6)) + getWebUrl();
+    }
   },
   {
     name: chalk.hex("#fff").bgHex("#1DA1F2")("𝕏"),
@@ -96,15 +117,15 @@ const getMinWidth = () => {
 const boxenOptions = {
   margin: 1,
   padding: 1.5,
-  width: Math.max(56, getMinWidth()), // Min width of 56, or larger if needed
-  title: `@${defaultHandle || 'baumannzone'}`,
+  width: Math.max(56, getMinWidth()),
+  title: `@${defaultHandle || ORIGINAL_AUTHOR_HANDLE}`,
   titleAlignment: "center",
   borderStyle: "bold",
   borderColor: "yellowBright",
 };
 
 const intro = chalk("Hi! I'm ")
-  + chalk.black.bgYellowBright("Jorge Baumann")
+  + chalk.black.bgYellowBright(ORIGINAL_AUTHOR_NAME)
   + chalk(". I help developers grow their careers and build amazing software.\n\nFind me on the internet.\n\n");
 
 const linkList = links.map((link) => `${link.name} ${link.url}`).join("\n");
