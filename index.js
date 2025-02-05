@@ -2,70 +2,9 @@
 
 import boxen from "boxen";
 import chalk from "chalk";
+import { parseArgs, ORIGINAL_AUTHOR_HANDLE } from './utils.js';
 
-const ORIGINAL_AUTHOR_HANDLE = 'baumannzone';
-const ORIGINAL_AUTHOR_NAME = 'Jorge Baumann';
-
-// Parse command line args
-const args = process.argv.slice(2);
-const defaultHandle = args[0];
-let customName = null;
-const overrides = [];
-
-// Parse remaining args
-for (let i = 1; i < args.length; i++) {
-  const arg = args[i];
-  if (arg.includes('=')) {
-    overrides.push(arg);
-  } else {
-    customName = arg;
-  }
-}
-
-const handleOverrides = overrides.reduce((acc, override) => {
-  const [services, handle] = override.split('=');
-  services.split(',').forEach(service => {
-    acc[service.toLowerCase()] = handle;
-  });
-  return acc;
-}, {});
-
-// Get handle from command line args or use default
-const getHandle = (service) => {
-  if (!service) return defaultHandle || ORIGINAL_AUTHOR_HANDLE;
-  const serviceKey = service.toLowerCase();
-  
-  // If service is threads and no override exists, use instagram's handle
-  if (serviceKey === 'threads' && !handleOverrides[serviceKey]) {
-    return handleOverrides['instagram'] || defaultHandle || ORIGINAL_AUTHOR_HANDLE;
-  }
-  
-  return handleOverrides[serviceKey] || defaultHandle || ORIGINAL_AUTHOR_HANDLE;
-};
-
-// Get the display name for the intro
-const getDisplayName = () => {
-  if (customName && customName.startsWith('"') && customName.endsWith('"')) {
-    return customName.slice(1, -1); // Remove quotes
-  }
-  return customName || `@${defaultHandle || ORIGINAL_AUTHOR_HANDLE}`;
-};
-
-const getWebUrl = () => {
-  const webOverride = getHandle('web');
-  
-  // Domain override case (starts with dot)
-  if (webOverride.startsWith('.')) {
-    return `${getHandle()}${webOverride}`;
-  }
-  
-  // If it contains a dot, it's a full URL
-  if (webOverride.includes('.')) {
-    return webOverride;
-  }
-  
-  return `${webOverride}.dev`;
-};
+const { defaultHandle, getHandle, getDisplayName, getWebUrl } = parseArgs(process.argv.slice(2));
 
 // Define links first so we can use them to calculate width
 const links = [
@@ -74,7 +13,7 @@ const links = [
     baseUrl: "https://",
     service: "web",
     get url() { 
-      return chalk.dim(this.baseUrl.padStart(this.baseUrl.length + 6)) + getWebUrl();
+      return chalk.dim(this.baseUrl.padStart(this.baseUrl.length + 6)) + getWebUrl(getHandle);
     }
   },
   {
