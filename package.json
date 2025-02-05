@@ -1,7 +1,7 @@
 {
   "name": "developer-card",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Create a developer card to show in the terminal",
   "engines": {
     "node": ">=22.0.0"
