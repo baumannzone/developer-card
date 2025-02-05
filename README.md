@@ -13,7 +13,12 @@ npx developer-card
 
 You can use your own handle for all services:
 ```bash
-npx developer-card yourusername
+npx developer-card yourusername     # Will display as "@yourusername"
+```
+
+You can also customize your display name (use quotes for names with spaces):
+```bash
+npx developer-card yourusername "Your Full Name"    # Will display as "Your Full Name"
 ```
 
 ### Custom Service Handles
@@ -21,7 +26,7 @@ npx developer-card yourusername
 You can override specific services by using the format `service=handle`. Multiple services can share the same handle by separating them with commas:
 
 ```bash
-npx developer-card defaulthandle instagram,twitter=customhandle github=otherhandle
+npx developer-card defaulthandle "Your Name" instagram,twitter=customhandle github=otherhandle
 ```
 
 #### Web Domain Customization
