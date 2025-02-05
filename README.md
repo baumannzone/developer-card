@@ -1,14 +1,48 @@
 # Developer Business Card
 
-Esta es mi "Developer Business Card". 
+A beautiful CLI business card to showcase your online presence.
 
 ![baumannzone business card"](./main.png)
 
-Puedes verla fácilmente ejecutando el siguiente comando en tu terminal:
+## Usage
+
+By default, it will display the original author's (@baumannzone) social media handles:
 ```bash
-npx baumannzone-business-card
+npx developer-card
 ```
 
-## ¿Cómo funciona?
-El proyecto está creado con Node.js y se despliega en **npm**, de tal modo que puedes ver mi información de contacto rápidamente con solo ejecutar ese comando en tu terminal.
-Recuerda que necesitas tener instalado Node.js con npm.
+You can use your own handle for all services:
+```bash
+npx developer-card yourusername
+```
+
+### Custom Service Handles
+
+You can override specific services by using the format `service=handle`. Multiple services can share the same handle by separating them with commas:
+
+```bash
+npx developer-card defaulthandle instagram,twitter=customhandle github=otherhandle
+```
+
+**Note:** By default, Threads will use the same handle as Instagram unless explicitly overridden:
+```bash
+# Both Instagram and Threads will use 'myinsta'
+npx developer-card mydefault instagram=myinsta
+
+# Override Threads separately
+npx developer-card mydefault instagram=myinsta threads=different
+```
+
+## Requirements
+- Node.js with npm installed
+
+## Available Services
+- Web (.dev domain)
+- X (Twitter)
+- Twitch
+- GitHub
+- CodePen
+- TikTok
+- Threads
+- YouTube
+- LinkedIn
