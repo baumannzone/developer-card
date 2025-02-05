@@ -44,8 +44,7 @@ export function parseArgs(args) {
   };
 
   const getWebUrl = (getHandle) => {
-    const webOverride = handleOverrides['web'];
-    if (!webOverride) return `${getHandle()}.dev`;
+    const webOverride = getHandle('web');
     
     // Domain override case (starts with dot)
     if (webOverride.startsWith('.')) {
@@ -57,7 +56,7 @@ export function parseArgs(args) {
       return webOverride;
     }
     
-    return `${webOverride}.dev`;
+    return `${webOverride}.dev`;	
   };
 
   return {
