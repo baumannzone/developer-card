@@ -1,6 +1,6 @@
 # Developer Business Card
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A beautiful CLI business card to showcase your online presence.
@@ -80,6 +80,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://baumannzone.dev"><img src="https://avatars.githubusercontent.com/u/5422102?v=4?s=100" width="100px;" alt="Jorge Baumann"/><br /><sub><b>Jorge Baumann</b></sub></a><br /><a href="https://github.com/baumannzone/developer-card/commits?author=baumannzone" title="Code">💻</a> <a href="#design-baumannzone" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://rodas.dev"><img src="https://avatars.githubusercontent.com/u/1431663?v=4?s=100" width="100px;" alt="Guillermo Rodas"/><br /><sub><b>Guillermo Rodas</b></sub></a><br /><a href="https://github.com/baumannzone/developer-card/commits?author=glrodasz" title="Code">💻</a> <a href="#design-glrodasz" title="Design">🎨</a> <a href="https://github.com/baumannzone/developer-card/commits?author=glrodasz" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
