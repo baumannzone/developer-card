@@ -1,8 +1,11 @@
 {
   "name": "developer-card",
   "type": "module",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Create a developer card to show in the terminal",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -10,7 +13,9 @@
   },
   "scripts": {
     "dev": "node --watch index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "author": "Jorge Baumann @baumannzone",
   "license": "BSD-3-Clause",
@@ -20,6 +25,9 @@
   "dependencies": {
     "boxen": "^8.0.1",
     "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.1"
   },
   "keywords": [
     "npm",
