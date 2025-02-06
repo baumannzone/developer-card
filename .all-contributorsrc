@@ -16,6 +16,17 @@
         "code",
         "design"
       ]
+    },
+    {
+      "login": "glrodasz",
+      "name": "Guillermo Rodas",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1431663?v=4",
+      "profile": "http://rodas.dev",
+      "contributions": [
+        "code",
+        "design",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
